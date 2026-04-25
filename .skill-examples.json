@@ -1,0 +1,40 @@
+{
+  "model": "kimi k2.6",
+  "examples": [
+    {
+      "prompt": "/explain src/auth/login.ts",
+      "aiResponses": [
+        {
+          "type": "thinking",
+          "content": "用户要求解释 src/auth/login.ts 文件。我需要读取这个文件，然后逐行/逐块拆解，按基础语法、运行逻辑、关键知识三个维度解释。先读取文件内容。"
+        },
+        {
+          "type": "toolcall",
+          "toolName": "Read",
+          "toolInput": {
+            "file_path": "src/auth/login.ts"
+          }
+        },
+        {
+          "type": "message",
+          "content": "📄 文件：src/auth/login.ts\n语言：TypeScript\n\n━━━━━━━━━━━━━━━━━━━━━━\n\n【第 1-5 行】\n```ts\nimport { verifyPassword } from './crypto';\nimport { generateToken } from './jwt';\n```\n\n📝 基础语法：\n  - `import { ... } from '...'` 从其他文件导入函数\n  - 花括号 `{}` 表示导入具名导出\n\n⚙️ 运行逻辑：\n  程序启动时会找到这两个文件，把里面的 `verifyPassword` 和 `generateToken` 函数加载进来，供本文件使用。\n\n💡 关键知识：\n  - 这是模块化开发，把密码验证和 JWT 生成拆到独立文件，便于维护和复用\n  - 路径 `./crypto` 表示同级目录下的 crypto.ts 文件"
+        }
+      ],
+      "model": "kimi k2.6"
+    },
+    {
+      "prompt": "/explain \"const doubled = nums.map(n => n * 2)\"",
+      "aiResponses": [
+        {
+          "type": "thinking",
+          "content": "用户给了一行代码，要求解释。这行代码使用了 map 方法和箭头函数。我需要拆解每个部分。"
+        },
+        {
+          "type": "message",
+          "content": "📄 代码片段\n语言：JavaScript\n\n━━━━━━━━━━━━━━━━━━━━━━\n\n【第 1 行】\n```js\nconst doubled = nums.map(n => n * 2);\n```\n\n📝 基础语法：\n  - `const` 声明一个常量，值不能重新赋值\n  - `nums.map(...)` 调用数组的 map 方法\n  - `n => n * 2` 是箭头函数，接收参数 n，返回 n * 2\n\n⚙️ 运行逻辑：\n  - `map` 会遍历 `nums` 数组的每个元素\n  - 对每个元素 `n`，计算 `n * 2`\n  - 把所有结果组成一个新数组，赋值给 `doubled`\n  - 原数组 `nums` 不会被修改\n\n💡 关键知识：\n  - `map` 是函数式编程方法，返回新数组而不改变原数组\n  - 如果 `nums = [1, 2, 3]`，那么 `doubled` 就是 `[2, 4, 6]`\n  - 箭头函数 `n => n * 2` 等同于 `function(n) { return n * 2; }`，但更简洁"
+        }
+      ],
+      "model": "kimi k2.6"
+    }
+  ]
+}
