@@ -10,6 +10,7 @@ tags:
   - code-review
   - learning
   - beginner
+rootUrl: https://raw.githubusercontent.com/Alpaca233114514/explain.md/main/SKILL.md
 ---
 
 # 代码解释器（Explain）
